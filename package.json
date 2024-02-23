@@ -1,0 +1,31 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:app": "turbo dev --filter app",
+    "dev:landing-page": "turbo dev --filter landing-page",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "docker:dev": "docker-compose up dev",
+    "docker:dev:app": "PROJECT=app docker-compose up dev",
+    "docker:dev:landing-page": "PROJECT=landing-page docker-compose up dev",
+    "docker:build": "docker-compose build",
+    "docker:build:app": "docker-compose build prod-app",
+    "docker:build:landing-page": "docker-compose build prod-landing-page",
+    "docker:prod:app": "docker-compose up prod-app",
+    "docker:prod:landing-page": "docker-compose up prod-landing-page"
+  },
+  "devDependencies": {
+    "@tp/eslint-config": "workspace:*",
+    "@tp/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=20"
+  }
+}

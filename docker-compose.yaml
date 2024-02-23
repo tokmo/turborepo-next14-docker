@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  dev:
+    container_name: project-dev
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+      args:
+        PROJECT: ${PROJECT:-}
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+
+  prod-app:
+    container_name: project-prod-app
+    build:
+      context: .
+      dockerfile: ./docker/prod/Dockerfile-app
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+
+  prod-landing-page:
+    container_name: project-prod-landing-page
+    build:
+      context: .
+      dockerfile: ./docker/prod/Dockerfile-landing-page
+    ports:
+      - "81:3000"
+    environment:
+      - NODE_ENV=production
