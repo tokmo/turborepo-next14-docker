@@ -17,12 +17,26 @@
     "docker:prod:app": "docker-compose up prod-app",
     "docker:prod:landing-page": "docker-compose up prod-landing-page"
   },
+  "dependencies": {
+    "next": "^14",
+    "react": "^18",
+    "react-dom": "^18"
+  },
   "devDependencies": {
     "@tp/eslint-config": "workspace:*",
     "@tp/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "turbo": "latest"
+    "@types/node": "^20.14.2",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "14",
+    "postcss": "^8",
+    "prettier": "^3",
+    "prettier-plugin-tailwindcss": "^0.6.2",
+    "tailwindcss": "^3.4.4",
+    "turbo": "latest",
+    "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@8.15.1",
   "engines": {

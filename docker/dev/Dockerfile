@@ -1,5 +1,4 @@
-# Utilisez l'image node comme base
-FROM node:20.11.1-alpine as base
+FROM node:20.14-alpine as base
 
 RUN apk add --no-cache libc6-compat
 RUN apk update
@@ -9,11 +8,10 @@ WORKDIR /app
 EXPOSE 3000
 EXPOSE 3001
 
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN yarn global add turbo
 
 COPY . .
-
 RUN pnpm i --frozen-lockfile
 
 ARG PROJECT
